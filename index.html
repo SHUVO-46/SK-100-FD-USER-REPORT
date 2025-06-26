@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID REPORT SYSTEM-SK SHUVOJIT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-section">
+        <h3>USER’S LOGIN HERE</h3>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="login-error"></p>
+    </div>
+
+    <div id="dashboard" style="display: none;">
+        <h1>☠ SK-SHUVOJIT ☠</h1>
+        </p>TODAY DATE 29/06/2025</p>
+        <h2>WELCOME,<span id="display-name"></span></h2>
+        <h3>30+ Friends Two Factor Id</h3>
+        <p>ID SUBMIT DATE : 28/06/2025</p>
+        <p>SINGLE RATE : 13.50 TK</p>
+        <p>ADMIN RATE  : 14.00 TK</p>
+        <textarea id="uid-input" placeholder="Paste UID list here..."></textarea>
+        <button onclick="processUID()">SUBMIT</button>
+
+        <div id="report">
+            <h1>YOUR REPORT</h1>
+            <h3>Total UID: <span id="total-uid">0</span></h3>
+            <h3>✅ OK UID: <span id="ok-uid">0</span></h3>
+            <h3>🚫 Back UID: <span id="back-uid">0</span></h3>
+            <h3>🔁 Duplicate UID: <span id="duplicate-uid">0</span></h3>
+            <h3>💵 Total Amount: <span id="amount">0</span> TK</h3>
+            <button onclick="downloadReport()">Download Report File</button>
+            
+            <table id="result-table">
+                <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+<script src="users.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
