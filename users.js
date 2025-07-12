@@ -4,16 +4,22 @@ const users = [
     { username: 'badhon29', password: 'bs2949', name: 'Badhon Das' },
     { username: 'partho0000', password: 'Partho000', name: 'Partho Sarkar' },
     { username: 'tufan', password: 'admin07', name: 'TUFAN (SUB-ADMIN)' },
-    { username: 'Samiran', password: 'Samiran60', name: 'Samiran Mondal' },
     { username: 'Nitish', password: '347685', name: 'Nitish Kumar' },
     { username: 'Bappy0203', password: 'Bappy2003', name: 'Ariyan Bappy' },
-    { username: 'Arpon', password: 'arpon@#23', name: 'Arpon Roy' },
+    { username: 'ADMIN8', password: 'ADMIN8', name: 'Somiron Mondal' },
     { username: 'rana120', password: '@@rana12', name: 'Rana Vai' },
     { username: 'Dweep', password: '501135', name: 'Dweep' },
     { username: 'Sunna@123', password: 'Sunna@2006', name: 'Amdad Ahmed' },
     { username: 'Nirob', password: 'Nirob@46', name: 'Nirob Raj' },
     { username: '@apurbo2122', password: 'Apurbo2122', name: 'Apurbo Sarkar' },
-    { username: 'vkhridoy', password: 'vkhridoy4444', name: 'Hridoy Mondal' },
+    { username: '@avi4321', password: 'Avijit4321', name: 'Avijit Mondal' },
 ];
 
-const okUIDs = [];
+// এই UID গুলো OK হিসেবে দেখাবে
+const okUIDs = [
+    "61577971964477",
+    "61578350425496",
+    "111111",
+    "222222",
+    "333333"
+];
