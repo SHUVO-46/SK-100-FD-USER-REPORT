@@ -1,89 +1,42 @@
+// লগইন ফাংশন
 function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value.trim();
     const found = users.find(u => u.username === user && u.password === pass);
 
     if (found) {
         document.getElementById("login-section").style.display = "none";
         document.getElementById("dashboard").style.display = "block";
         document.getElementById("display-name").innerText = found.name;
+        document.getElementById("login-error").innerText = "";
     } else {
         document.getElementById("login-error").innerText = "Invalid Credentials!";
+        document.getElementById("login-error").style.color = "red";
     }
 }
 
+// UID প্রক্রিয়া করা (UID + Password ইনপুট থেকে)
 function processUID() {
     const input = document.getElementById("uid-input").value.trim();
-    if (!input) return;
+    if (!input) return alert("Please paste your UID list.");
 
-    const uidArray = input.split(/\s+/);
-    const uniqueUIDs = [...new Set(uidArray)];
-    const duplicates = uidArray.length - uniqueUIDs.length;
+    const lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0);
 
-    let ok = [], back = [];
-    uniqueUIDs.forEach(uid => {
-        if (okUIDs.includes(uid)) ok.push(uid);
-        else back.push(uid);
+    let uidPassArr = lines.map(line => {
+        const parts = line.split(/\s+/); // split by whitespace or tab
+        return { uid: parts[0], pass: parts[1] || "" };
     });
 
-    document.getElementById("total-uid").innerText = uniqueUIDs.length;
-    document.getElementById("ok-uid").innerText = ok.length;
-    document.getElementById("back-uid").innerText = back.length;
-    document.getElementById("duplicate-uid").innerText = duplicates;
-
-    const rate = ok.length < 50 ? 13.50 : 14.00;
-    const amount = ok.length * rate;
-    document.getElementById("amount").innerText = amount;
-
-    const tbody = document.querySelector("#result-table tbody");
-    tbody.innerHTML = "";
-    ok.forEach(uid => {
-        const row = `<tr><td>${uid}</td><td class="ok"> OK</td></tr>`;
-        tbody.innerHTML += row;
+    // ডুপ্লিকেট রিমুভ এবং ডুপ্লিকেট গণনা
+    let uniqueMap = new Map();
+    let duplicatesCount = 0;
+    uidPassArr.forEach(item => {
+        const key = item.uid + '|' + item.pass;
+        if (uniqueMap.has(key)) {
+            duplicatesCount++;
+        } else {
+            uniqueMap.set(key, item);
+        }
     });
-    back.forEach(uid => {
-        const row = `<tr><td>${uid}</td><td class="back"> Back</td></tr>`;
-        tbody.innerHTML += row;
-    });
-}
 
-function copyOK() {
-    const ok = [];
-    document.querySelectorAll(".ok").forEach(td => {
-        ok.push(td.parentElement.firstChild.textContent);
-    });
-    navigator.clipboard.writeText(ok.join("\n"));
-}
-
-function copyBack() {
-    const back = [];
-    document.querySelectorAll(".back").forEach(td => {
-        back.push(td.parentElement.firstChild.textContent);
-    });
-    navigator.clipboard.writeText(back.join("\n"));
-}
-
-function copyDuplicate() {
-    const input = document.getElementById("uid-input").value.trim();
-    if (!input) return;
-    const uidArray = input.split(/\s+/);
-    const seen = {};
-    const duplicates = [];
-    uidArray.forEach(uid => {
-        if (seen[uid]) duplicates.push(uid);
-        else seen[uid] = true;
-    });
-    navigator.clipboard.writeText(duplicates.join("\n"));
-}
-
-function downloadReport() {
-    let text = "UID Report:\n";
-    document.querySelectorAll("#result-table tbody tr").forEach(row => {
-        text += row.children[0].innerText + " - " + row.children[1].innerText + "\n";
-    });
-    const blob = new Blob([text], { type: "text/plain" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "uid-report.txt";
-    a.click();
-}
+    const uniqueUIDPass = Array.from
