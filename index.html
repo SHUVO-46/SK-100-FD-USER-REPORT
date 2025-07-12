@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UID REPORT SYSTEM - SK SHUVOJIT</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID REPORT SYSTEM - SK SHUVOJIT</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="login-section">
-    <h3>USER’S LOGIN HERE</h3>
-    <input type="text" id="username" placeholder="Username" />
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="login()">Login</button>
-    <p id="login-error"></p>
-  </div>
-
-  <div id="dashboard" style="display: none;">
-    <h1>☠ SK-SHUVOJIT ☠</h1>
-    <p>TODAY DATE 29/06/2025</p>
-    <h2>WELCOME, <span id="display-name"></span></h2>
-
-    <h3>30+ Friends Two Factor Id</h3>
-    <p>ID SUBMIT DATE : 28/06/2025</p>
-    <p>SINGLE RATE : 13.50 TK</p>
-    <p>ADMIN RATE : 14.00 TK</p>
-
-    <textarea id="uid-input" placeholder="Paste UID and PASS (separated by space or tab) here..."></textarea>
-    <button onclick="processUID()">SUBMIT</button>
-
-    <div id="report">
-      <h1>YOUR REPORT</h1>
-      <h3>Total UID: <span id="total-uid">0</span></h3>
-      <h3>✅ OK UID: <span id="ok-uid">0</span></h3>
-      <h3>🚫 Back UID: <span id="back-uid">0</span></h3>
-      <h3>🔁 Duplicate UID: <span id="duplicate-uid">0</span></h3>
-      <h3>💵 Total Amount: <span id="amount">0</span> TK</h3>
-
-      <button onclick="copyOK()">Copy OK UID</button>
-      <button onclick="copyBack()">Copy Back UID</button>
-      <button onclick="copyDuplicate()">Copy Duplicate UID</button>
-
-      <button onclick="downloadReportXLSX('ok')">Download OK UID XLSX</button>
-      <button onclick="downloadReportXLSX('back')">Download Back UID XLSX</button>
-
-      <table id="result-table">
-        <thead>
-          <tr>
-            <th>UID</th>
-            <th>PASS</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div id="login-section">
+        <h3>USER LOGIN</h3>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="login-error" class="error-text"></p>
     </div>
-  </div>
 
-  <script src="users.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>  
-  <!-- XLSX লাইব্রেরি ডাউনলোডের জন্য -->
-  <script src="script.js"></script>
+    <div id="dashboard" style="display: none;">
+        <h1>☠ SK-SHUVOJIT ☠</h1>
+        <h3>TODAY: <span id="today-date"></span></h3>
+        <h2>Welcome, <span id="display-name"></span></h2>
+
+        <h3>30+ Friends Two Factor Report</h3>
+        <p>Member Rate: <span id="member-rate">13.50</span> TK</p>
+        <p>100+ ID Rate: <span id="admin-rate">14.00</span> TK</p>
+
+        <textarea id="uid-input" placeholder="Paste UID & PASS here... (UID[TAB]PASS)"></textarea>
+        <button onclick="processUID()">Check Report</button>
+
+        <div id="report">
+            <h2>Your Report</h2>
+            <p>Total UID: <span id="total-uid">0</span></p>
+            <p>✅ OK UID: <span id="ok-uid">0</span></p>
+            <p>🚫 Back UID: <span id="back-uid">0</span></p>
+            <p>🔁 Duplicate UID: <span id="duplicate-uid">0</span></p>
+            <h3>💵 Total Amount: <span id="amount">0</span> TK</h3>
+
+            <button onclick="downloadExcel('ok')">📥 Download OK UID (.xlsx)</button>
+            <button onclick="downloadExcel('back')">📥 Download BACK UID (.xlsx)</button>
+            <button onclick="copyUIDs('ok')">📋 Copy OK UID</button>
+            <button onclick="copyUIDs('back')">📋 Copy BACK UID</button>
+            <button onclick="copyUIDs('duplicate')">📋 Copy DUPLICATE UID</button>
+
+            <table id="result-table">
+                <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>PASS</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="users.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
