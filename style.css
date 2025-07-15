@@ -78,7 +78,6 @@ button:hover {
 #dashboard h1, #dashboard h2, #dashboard h3 {
     padding: 8px;
     margin: 10px auto;
-    border-radius: 6px;
     display: inline-block;
     background-color: rgba(0,255,0,0.05);
 }
