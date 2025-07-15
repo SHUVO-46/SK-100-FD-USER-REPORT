@@ -76,7 +76,6 @@ button:hover {
 }
 
 #dashboard h1, #dashboard h2, #dashboard h3 {
-    border: 2px solid lime;
     padding: 8px;
     margin: 10px auto;
     border-radius: 6px;
