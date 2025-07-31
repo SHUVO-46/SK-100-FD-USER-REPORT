@@ -3,7 +3,7 @@ const users = [
     { username: 'prantomondal878', password: 'Pranto123', name: 'Pranto Mondal' },
     { username: 'badhon29', password: 'bs2949', name: 'Badhon Das' },
     { username: 'partho0000', password: 'Partho000', name: 'Partho Sarkar' },
-    { username: 'admin46', password: 'admin46', name: 'GEST' },
+    { username: 'admin', password: 'admin', name: 'ADMIN' },
     { username: 'Samiran', password: 'Samiran60', name: 'Samiran Mondal' },
     { username: 'joy12345', password: '12341234', name: 'JOY' },
     { username: 'Bappy0203', password: 'Bappy2003', name: 'Ariyan Bappy' },
