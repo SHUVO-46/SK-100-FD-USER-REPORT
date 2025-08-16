@@ -1,21 +1,4 @@
-const users = [
-    { username: 'Monirul', password: 'Monirul@1', name: 'Monirul Islam' },
-    { username: 'prantomondal878', password: 'Pranto123', name: 'Pranto Mondal' },
-    { username: 'badhon29', password: 'bs2949', name: 'Badhon Das' },
-    { username: 'partho0000', password: 'Partho000', name: 'Partho Sarkar' },
-    { username: 'admin', password: 'admin', name: 'ADMIN' },
-    { username: 'Samiran', password: 'Samiran60', name: 'Samiran Mondal' },
-    { username: 'joy12345', password: '12341234', name: 'JOY' },
-    { username: 'Bappy0203', password: 'Bappy2003', name: 'Ariyan Bappy' },
-    { username: 'Monir1051', password: 'Monir2025', name: 'MD Monir' },
-    { username: 'rana120', password: '@@rana12', name: 'Rana Vai' },
-    { username: 'Dweep', password: '501135', name: 'Dweep' },
-    { username: 'Saurav Roy', password: 'Saurav', name: 'Saurav Roy' },
-    { username: 'shaon707', password: 'shaon@', name: 'Shaon Kumar' },
-    { username: '@apurbo2122', password: 'Apurbo2122', name: 'Apurbo Sarkar' },
-    { username: 'vkhridoy', password: 'vkhridoy4444', name: 'Hridoy Mondal' },
-];
-
+const users = [];
 const okUIDs = ["61579043805753",
 "61579049836511",
 "61579052086982",
@@ -89,3 +72,4 @@ const okUIDs = ["61579043805753",
 "61579711011135",
 "61579715780558",
 "61579717760449"];
+
